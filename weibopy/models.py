@@ -55,7 +55,8 @@ class Status(Model):
                 else:
                     setattr(status, k, v)
             elif k == 'retweeted_status':
-                setattr(status, k, User.parse(api, v))
+                # setattr(status, k, User.parse(api, v))
+                setattr(status, k, Status.parse(api, v))
             elif k == 'geo':
                 setattr(status, k, Geo.parse(api, v))
             else:
